@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   get "sessions/index" => "sessions#index"
 
+  get "auth/:provider/callback", to: "sessions#create"
+
+  delete "sign_out", to: "sessions#destroy", as: "sign_out"
+
   root "home#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
